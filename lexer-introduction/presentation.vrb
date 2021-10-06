@@ -1,0 +1,14 @@
+\frametitle{Lexer vs Parser}
+\begin{itemize}
+            \item Lexer
+            \begin{itemize}
+                \item Input: sequence of characters
+                \item Output: sequence of grouped characters (tokens)
+            \end{itemize}
+            \item Parser
+            \begin{itemize}
+                \item Input: sequence of tokens (from the lexer)
+                \item Output: abstract syntax tree
+            \end{itemize}
+        \end{itemize}
+

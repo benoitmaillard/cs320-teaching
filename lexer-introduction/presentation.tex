@@ -1,0 +1,109 @@
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+\input{preamble.tex}
+
+\title{Computer Language Processing}
+\subtitle{Lab 2}
+\author{Benoît Maillard}
+\date{Fall 2021}
+
+\begin{document}
+    \frame{\titlepage}
+
+    %\section{Intro}
+
+    \begin{frame}{Labs overview}
+        \begin{itemize}
+            \item Lab01 -- Interpreter
+            \item Lab02 -- Lexer
+            \item Lab03 -- Parser
+            \item Lab04 -- Type Checker
+            \item Lab05 -- Codegen (Code Generator)
+            \item Lab06 -- Compiler extension
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Pipeline}
+        \centering
+        \dotgraph{pipeline_hg}
+    \end{frame}
+
+    \begin{frame}[fragile]{Lexer vs Parser}
+        \begin{itemize}
+            \item Lexer
+            \begin{itemize}
+                \item Input: sequence of characters
+                \item Output: sequence of grouped characters (tokens)
+            \end{itemize}
+            \item Parser
+            \begin{itemize}
+                \item Input: sequence of tokens (from the lexer)
+                \item Output: abstract syntax tree 
+            \end{itemize}
+        \end{itemize}
+
+    \end{frame}
+
+    \begin{frame}{Amy tokens}
+        \code{Tokens.scala}
+    \end{frame}
+
+    \begin{frame}{Example}
+        \begin{itemize}
+            \item Input
+            \code{LexerInput.scala}
+            \item Output:
+            \terminal{LexerOutput.txt}
+            \item Display: \emph{TokenType(args)(line:column)}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Another example}
+        \begin{itemize}
+            \item Input
+            \code{LexerInput2.scala}
+            \item Not a valid Amy program
+            \item But valid input for the lexer!
+        \end{itemize}
+    \end{frame}
+
+    \section{Working with Silex}
+
+    \begin{frame}{Silex}
+        \begin{itemize}
+            \item Lexing library
+            \item Write rules made of regular expressions
+        \code{SilexIntro.scala}
+        \pause
+            \item Accepted inputs: \emph{0b01}, \emph{0b1000}, \emph{0b1}, ...
+        \end{itemize}
+        
+    \end{frame}
+
+    \begin{frame}{Writing Silex expressions}
+        \code{SilexBasicFuns.scala}
+    \end{frame}
+
+    \begin{frame}{Writing Silex expressions II}
+        \code{SilexCombinators.scala}
+    \end{frame}
+
+    \begin{frame}{Amy keywords example}
+        \code{AmyKeywords.scala}
+    \end{frame}
+
+    \begin{frame}{Error handling and EOF}
+        \code{SilexCompleteLexer.scala}
+    \end{frame}
+
+
+    \begin{frame}{Some advice}
+        \begin{itemize}
+            \item Read the handout carefully
+            \item Don't forget to call \emph{setPosition} on tokens
+            \item Write as many tests as possible
+        \end{itemize}
+    \end{frame}
+\end{document}
